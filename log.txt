@@ -1,0 +1,29 @@
+# Part 1: Building a REST API with NestJS and Prisma
+## Generate the NestJS project
+```
+$ npx @nestjs/cli new median
+```
+## Create a PostgreSQL instance
+```
+$ touch compose.yml
+$ vim compose.yml
++ # docker-compose.yml
++ 
++ version: '3.8'
++ services:
++ 
++   postgres:
++     image: postgres:13.5
++     restart: always
++     environment:
++       - POSTGRES_USER=myuser
++       - POSTGRES_PASSWORD=mypassword
++     volumes:
++       - postgres:/var/lib/postgresql/data
++     ports:
++       - '5432:5432'
++ 
++ volumes:
++   postgres:
+$ docker compose up -d
+```
