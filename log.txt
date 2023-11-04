@@ -85,3 +85,19 @@ $ rm -rf dist
 # Ctrl-C on `npm run start:dev` tab
 $ npm run start:dev
 ```
+## Set up Swagger
+```
+$ npm install --save @nestjs/swagger swagger-ui-express
+$ vim src/main.ts
++ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+...
++   const config = new DocumentBuilder()
++     .setTitle('Median')
++     .setDescription('The Median API description')
++     .setVersion('0.1')
++     .build();
++ 
++   const document = SwaggerModule.createDocument(app, config);
++   SwaggerModule.setup('api', app, document);
+$ open http://localhost:3000/api
+```
