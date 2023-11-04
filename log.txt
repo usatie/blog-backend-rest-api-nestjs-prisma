@@ -117,3 +117,5 @@ $ src/articles/articles.module.ts
 ```
 ### Define endpoints
 - the id parameter needs to be casted to a number using the + operator.
+- GET /articles/:id returns 200 even if id not found
+- DELETE /articles/:id returns 200 even if it removes the article (expected 204)
