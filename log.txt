@@ -27,3 +27,61 @@ $ vim compose.yml
 +   postgres:
 $ docker compose up -d
 ```
+## Set up Prisma
+### Initialize Prisma
+```
+$ npm install -D prisma
+$ npx prisma init
+```
+### Set your environment variable
+```
+$ vim .env
++ DATABASE_URL="postgres://myuser:mypassword@localhost:5432/median-db"
+```
+### Model the data
+```
+$ vim prisma/schema.prisma
++ model Article {
++ 	id			Int		@id @default(autoincrement())
++ 	title		String	@unique
++ 	description	String?
++ 	body		String
++ 	published	Boolean	@default(false)
++ 	createdAt	DateTime	@default(now())
++ 	updatedAt	DateTime	@updatedAt
++ }
+```
+- @unique: How is it achieved? (from the migration file, it lacks a unique constraint)
+- @updatedAt: How is it achieved? (from the migration file, it lacks a trigger)
+### Migrate the database
+1. Save the migration
+2. Execute the migration
+3. Generate the Prisma client
+```
+$ npx prisma migrate dev --name "init"
+```
+### Seed the database
+```
+$ touch prisma/seed.ts
+$ vim package.json
++   "prisma": {
++ 	  "seed": "ts-node prisma/seed.ts"
++   }
+$ npx prisma db seed
+```
+### Create a Prisma service
+```
+$ npx nest generate module prisma
+$ npx nest generate service prisma
+$ vim src/prisma/prisma.module.ts
++   exports: [PrismaService]
+```
+- The Prisma module will be responsible for creating a singleton instance of the PrismaService and allow sharing of the service throughout your application. To do this, you will add the PrismaService to the exports array in the prisma.module.ts file:
+- Any module that imports the PrismaModule will have access to PrismaService and can inject it into its own components/services. 
+
+```
+Error: Cannot find module './app.controller'
+$ rm -rf dist
+# Ctrl-C on `npm run start:dev` tab
+$ npm run start:dev
+```
