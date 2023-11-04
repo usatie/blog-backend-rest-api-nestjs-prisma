@@ -115,3 +115,5 @@ $ npx nest generate resource
 ```
 $ src/articles/articles.module.ts
 ```
+### Define endpoints
+- the id parameter needs to be casted to a number using the + operator.
