@@ -85,6 +85,7 @@ $ rm -rf dist
 # Ctrl-C on `npm run start:dev` tab
 $ npm run start:dev
 ```
+
 ## Set up Swagger
 ```
 $ npm install --save @nestjs/swagger swagger-ui-express
@@ -100,4 +101,17 @@ $ vim src/main.ts
 +   const document = SwaggerModule.createDocument(app, config);
 +   SwaggerModule.setup('api', app, document);
 $ open http://localhost:3000/api
+```
+
+## Implement CRUD operations for Article model
+```
+$ npx nest generate resource
+? What name would you like to use for this resource (plural, e.g., "users")? articles
+? What transport layer do you use? REST API
+? Would you like to generate CRUD entry points? Yes
+```
+
+### Add PrismaClient to the Articles module
+```
+$ src/articles/articles.module.ts
 ```
