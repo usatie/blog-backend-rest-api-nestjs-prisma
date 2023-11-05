@@ -5,28 +5,31 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class ArticlesService {
-  constructor (private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) {}
   create(createArticleDto: CreateArticleDto) {
-	return this.prisma.article.create({ data: createArticleDto });
+    return this.prisma.article.create({ data: createArticleDto });
   }
 
   findDrafts() {
-	return this.prisma.article.findMany({ where : { published: false } });
+    return this.prisma.article.findMany({ where: { published: false } });
   }
 
   findAll() {
-	return this.prisma.article.findMany({ where : { published: true } });
+    return this.prisma.article.findMany({ where: { published: true } });
   }
 
   findOne(id: number) {
-	return this.prisma.article.findUnique({ where : { id: id } });
+    return this.prisma.article.findUnique({ where: { id: id } });
   }
 
   update(id: number, updateArticleDto: UpdateArticleDto) {
-	return this.prisma.article.update({ where : { id: id }, data: updateArticleDto });
+    return this.prisma.article.update({
+      where: { id: id },
+      data: updateArticleDto,
+    });
   }
 
   remove(id: number) {
-    return this.prisma.article.delete({ where : { id: id } });
+    return this.prisma.article.delete({ where: { id: id } });
   }
 }

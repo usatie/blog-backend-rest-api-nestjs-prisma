@@ -44,4 +44,3 @@ main()
     // close Prisma Client at the end
     await prisma.$disconnect();
   });
-

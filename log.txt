@@ -122,3 +122,37 @@ $ src/articles/articles.module.ts
 
 ## Update Swagger response types
 - Response statuses must be defined by response decorators
+
+# Part 2: Building a REST API with NestJS and Prisma: Input Validation & Transformation
+## Perform input validation
+- Nest invokes a pipe before the route handler, and the pipe receives the arguments destined for the route handler.
+- Pipes can do a number of things, like validate the input, add fields to the input, etc.
+- The scope of pipes is limited to processing input arguments.
+
+### Set up ValidationPipe globally
+```
+$ npm install class-validator class-transformer
+$ vim src/main.ts
++ import { ValidationPipe } from "@nestjs/common";
++   app.useGlobalPipes(new ValidationPipe());
+```
+
+### Add validation rules to CreateArticleDto
+```
+$ vim src/articles/dto/create-article.dto.ts
++ import {
++   IsBoolean,
++   IsNotEmpty,
++   IsOptional,
++   IsString,
++   MaxLength,
++   MinLength,
++ } from 'class-validator';
++ @IsString()
++ @IsNotEmpty()
++ @MinLength(10)
+...
+```
+
+### Strip unnecessary properties from client requests
+- ValidationPipe will automatically remove all non-whitelisted properties
