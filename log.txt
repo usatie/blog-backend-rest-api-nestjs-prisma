@@ -156,3 +156,14 @@ $ vim src/articles/dto/create-article.dto.ts
 
 ### Strip unnecessary properties from client requests
 - ValidationPipe will automatically remove all non-whitelisted properties
+```
++   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
+```
+
+## Transform dynamic URL paths with ParseIntPipe
+```
+$ vim src/articles/articles.controller.ts
++ import { ParseIntPipe } from '@nestjs/common';
+...
++   findOne(@Param('id', ParseIntPipe) id: number) {
+```
