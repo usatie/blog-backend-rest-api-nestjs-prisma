@@ -178,3 +178,14 @@ throw new NotFoundException();
 $ npx nest generate filter prisma-client-exception
 ```
 
+## Bonus: Handle Prisma exceptions with the nestjs-prisma package
+https://nestjs-prisma.dev/docs/installation/
+```
+$ npm install nestjs-prisma
+$ vim src/main.ts
++ import { PrismaClientExceptionFilter } from 'nestjs-prisma';
+...
++   const { httpAdapter } = app.get(HttpAdapterHost);
++   app.useGlobalFilters(new PrismaClientExceptionFilter(httpAdapter));
+
+```
