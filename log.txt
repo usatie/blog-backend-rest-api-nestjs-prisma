@@ -167,3 +167,6 @@ $ vim src/articles/articles.controller.ts
 ...
 +   findOne(@Param('id', ParseIntPipe) id: number) {
 ```
+
+# Part 3: Building a REST API with NestJS and Prisma: Error Handling
+## Detect and throw exceptions directly
