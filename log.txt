@@ -170,3 +170,11 @@ $ vim src/articles/articles.controller.ts
 
 # Part 3: Building a REST API with NestJS and Prisma: Error Handling
 ## Detect and throw exceptions directly
+```
+throw new NotFoundException();
+```
+## Handle exceptions by using exception filters
+```
+$ npx nest generate filter prisma-client-exception
+```
+
