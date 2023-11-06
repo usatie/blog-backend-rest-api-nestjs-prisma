@@ -189,3 +189,17 @@ $ vim src/main.ts
 +   app.useGlobalFilters(new PrismaClientExceptionFilter(httpAdapter));
 
 ```
+
+# Building a REST API with NestJS and Prisma: Handling Relational Data
+## Add a User model to the database
+```
+$ vim prisma/schema.prisma
+$ npx prisma migrate dev --name "add-user-model"
+$ vim prisma/seed.ts
+$ npx prisma db seed
+```
+
+## Add an authorId field to ArticleEntity
+```
+$ vim src/articles/entities/article.entity.ts
+```
