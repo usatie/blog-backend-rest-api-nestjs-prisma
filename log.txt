@@ -214,3 +214,21 @@ $ npx nest generate resource
 $ vim src/users/users.module.ts
 $ vim src/users/users.service.ts
 ```
+
+## Define the User entity and DTO classes
+```
+$ vim src/users/entities/user.entity.ts
+```
+- The @ApiProperty decorator is used to make properties visible to Swagger. Notice that you did not add the @ApiProperty decorator to the password field. This is because this field is sensitive, and you do not want to expose it in your API.
+- A DTO (Data Transfer Object) is an object that defines how the data will be sent over the network.
+
+## Define the UsersService class
+```
+$ vim src/users/users.service.ts
+```
+
+## Define the UsersController class
+```
+$ vim src/users/users.controller.ts
+```
+
