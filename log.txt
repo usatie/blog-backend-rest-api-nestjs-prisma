@@ -232,3 +232,11 @@ $ vim src/users/users.service.ts
 $ vim src/users/users.controller.ts
 ```
 
+## Use the ClassSerializerInterceptor to remove a field from the response
+```
+$ vim src/main.ts
+$ vim src/users/users.controller.ts
+$ vim src/users/entities/user.entity.ts
+$ vim src/users/users.controller.ts
+```
+
