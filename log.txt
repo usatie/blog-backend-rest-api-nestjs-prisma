@@ -203,3 +203,8 @@ $ npx prisma db seed
 ```
 $ vim src/articles/entities/article.entity.ts
 ```
+
+## Implement CRUD endpoints for Users
+```
+$ npx nest generate resource
+```
