@@ -240,3 +240,7 @@ $ vim src/users/entities/user.entity.ts
 $ vim src/users/users.controller.ts
 ```
 
+## Returning the author along with an article
+```
+$ vim src/articles/articles.service.ts
+```
