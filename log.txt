@@ -208,3 +208,9 @@ $ vim src/articles/entities/article.entity.ts
 ```
 $ npx nest generate resource
 ```
+
+## Add PrismaClient to the Users module
+```
+$ vim src/users/users.module.ts
+$ vim src/users/users.service.ts
+```
