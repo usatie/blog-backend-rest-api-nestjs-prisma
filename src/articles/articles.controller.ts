@@ -23,21 +23,23 @@ export class ArticlesController {
   @Post()
   @ApiCreatedResponse({ type: ArticleEntity })
   async create(@Body() createArticleDto: CreateArticleDto) {
-    return new ArticleEntity(await this.articlesService.create(createArticleDto));
+    return new ArticleEntity(
+      await this.articlesService.create(createArticleDto),
+    );
   }
 
   @Get('draft')
   @ApiOkResponse({ type: [ArticleEntity] })
   async findDrafts() {
     const drafts = await this.articlesService.findDrafts();
-	return drafts.map(draft => new ArticleEntity(draft));
+    return drafts.map((draft) => new ArticleEntity(draft));
   }
 
   @Get()
   @ApiOkResponse({ type: [ArticleEntity] })
   async findAll() {
     const articles = await this.articlesService.findAll();
-	return articles.map(article => new ArticleEntity(article));
+    return articles.map((article) => new ArticleEntity(article));
   }
 
   @Get(':id')
@@ -56,7 +58,9 @@ export class ArticlesController {
     @Param('id', ParseIntPipe) id: number,
     @Body() updateArticleDto: UpdateArticleDto,
   ) {
-    return new ArticleEntity(await this.articlesService.update(id, updateArticleDto));
+    return new ArticleEntity(
+      await this.articlesService.update(id, updateArticleDto),
+    );
   }
 
   @Delete(':id')

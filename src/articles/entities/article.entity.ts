@@ -31,10 +31,10 @@ export class ArticleEntity implements Article {
   author?: UserEntity;
 
   constructor({ author, ...data }: Partial<ArticleEntity>) {
-	  Object.assign(this, data);
-	  
-	  if (author) {
-		  this.author = new UserEntity(author);
-	  }
+    Object.assign(this, data);
+
+    if (author) {
+      this.author = new UserEntity(author);
+    }
   }
 }
