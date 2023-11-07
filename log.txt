@@ -244,3 +244,21 @@ $ vim src/users/users.controller.ts
 ```
 $ vim src/articles/articles.service.ts
 ```
+
+# Building a REST API with NestJS and Prisma: Authentication
+## Implement authentication in your REST API
+```
+$ npx nest generate resource
+$ npm install --save @nestjs/passport passport @nestjs/jwt passport-jwt
+$ npm install --save-dev @types/passport-jwt
+$ vim src/auth/auth.module.ts
+```
+
+### Implement a POST /auth/login endpoint
+```
+$ mkdir src/auth/dto
+$ vim src/auth/dto/login.dto.ts
+$ mkdir src/auth/entity
+$ vim src/auth/entity/auth.entity.ts
+$ src/auth/jwt.strategy.ts
+```
